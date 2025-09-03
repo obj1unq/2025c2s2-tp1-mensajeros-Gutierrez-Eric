@@ -65,13 +65,14 @@ object neo {
 
 object saraConnor {
     const comunicacion = false
-    var peso = 0
+    var pesoPropio = 0
     var vehiculo = moto
     method peso(){
-        return peso + vehiculo.pesa()
+        return pesoPropio + vehiculo.pesa()
     }
-    method peso(_peso){
-        peso = _peso
+
+    method pesoPropio(_peso){
+        pesoPropio = _peso
     }
     method comunicacion (){
         return comunicacion
