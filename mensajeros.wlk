@@ -48,18 +48,18 @@ object jeanGray {
 }
 
 object neo {
-    var saldo = 0
+    var tieneCredito = true
     method peso(){
         return 0
     }
-    method saldo (){
-        return saldo
+    method credito(){
+        return tieneCredito
     }
-    method saldo(_saldo){
-        saldo = _saldo
+    method credito(_credito){
+        tieneCredito = _credito
     }
     method comunicacion(){
-        return saldo > 1
+        return tieneCredito
     }
 }
 
