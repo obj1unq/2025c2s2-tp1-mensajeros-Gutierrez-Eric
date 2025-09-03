@@ -1,0 +1,41 @@
+import mensajeros.*
+
+describe "Test mensajeria"{
+
+    test "Paquete no pago no puede ser entregado en la Matrix por Neo"{
+        paquete.pago(false)
+        paquete.mensajero(neo)
+        paquete.destino(laMatrix)
+        assert.notThat(paquete.entrega())
+    }
+
+    test "Paquete pago puede ser entregado a la Matrix por Jean"{
+        paquete.pago(true)
+        paquete.destino(laMatrix)
+        paquete.mensajero(jeanGray)
+        assert.that(paquete.entrega())
+    }
+
+
+
+
+    test "Paquete pago no puede ser entregado en Brooklyn por Sara con camion y acoplado"{
+        paquete.pago(true)
+        paquete.destino(puenteBrooklyn)
+        paquete.mensajero(saraConnor)
+        saraConnor.pesoPropio(70)
+        assert.equals(170, saraConnor.peso())
+        camion.acoplados(1)
+        saraConnor.vehiculo(camion)
+        assert.notThat(paquete.entrega())
+    }
+
+    test "Paquete pago puede ser entregado en Brooklyn por Sara con moto"{
+        paquete.pago(true)
+        paquete.destino(puenteBrooklyn)
+        paquete.mensajero(saraConnor)
+        saraConnor.pesoPropio(70)
+        assert.equals(170, saraConnor.peso())
+        assert.that(paquete.entrega())
+    }
+}
