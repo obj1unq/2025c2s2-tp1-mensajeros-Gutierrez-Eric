@@ -21,7 +21,7 @@ object paquete {
         mensajero = _mensajero
     }
     method entrega(){
-        return mensajero.puedeEntregar()
+        return self.pago() and destino.puedeEntregar(mensajero)
     }
 }
 
@@ -33,23 +33,38 @@ object puenteBrooklyn{
 
 object laMatrix {
     method puedeEntregar(mensajero){
-
+        return mensajero.comunicacion()
     }
 }
 
 object jeanGray {
+    const comunicacion = true
     method peso(){
         return 65
+    }
+    method comunicacion (){
+        return comunicacion
     }
 }
 
 object neo {
+    var saldo = 0
     method peso(){
         return 0
+    }
+    method saldo (){
+        return saldo
+    }
+    method saldo(_saldo){
+        saldo = _saldo
+    }
+    method comunicacion(){
+        return saldo > 1
     }
 }
 
 object saraConnor {
+    const comunicacion = false
     var peso = 0
     var vehiculo = moto
     method peso(){
@@ -57,6 +72,15 @@ object saraConnor {
     }
     method peso(_peso){
         peso = _peso
+    }
+    method comunicacion (){
+        return comunicacion
+    }
+    method vehiculo(){
+        return vehiculo
+    }
+    method vehiculo(_vehiculo){
+        vehiculo = _vehiculo
     }
 }
 
